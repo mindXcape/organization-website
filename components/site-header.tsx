@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,21 +12,21 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
+} from "@/components/ui/navigation-menu";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = React.useState(false)
+  const [scrolled, setScrolled] = React.useState(false);
 
   React.useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
+      setScrolled(window.scrollY > 10);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <motion.header
@@ -36,9 +36,15 @@ export function SiteHeader() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="container flex h-16 md:h-20 items-center">
-        <motion.div className="mr-4 md:mr-8" whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+        <motion.div
+          className="mr-4 md:mr-8"
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
+        >
           <Link href="/" className="flex items-center space-x-2">
-            <span className="font-serif text-xl md:text-2xl font-bold gradient-text">Global Impact Foundation</span>
+            <span className="font-serif text-xl md:text-2xl font-bold gradient-text">
+              Mingmar Lodge Lumsa
+            </span>
           </Link>
         </motion.div>
 
@@ -163,8 +169,15 @@ export function SiteHeader() {
         <div className="flex items-center ml-auto">
           <Sheet>
             <SheetTrigger asChild>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button variant="ghost" size="icon" className="md:hidden hover:bg-primary-50">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden hover:bg-primary-50"
+                >
                   <Menu className="h-5 w-5" />
                   <span className="sr-only">Toggle menu</span>
                 </Button>
@@ -177,79 +190,112 @@ export function SiteHeader() {
         </div>
       </div>
     </motion.header>
-  )
+  );
 }
 
-const ListItem = React.forwardRef<React.ElementRef<"a">, React.ComponentPropsWithoutRef<"a"> & { title: string }>(
-  ({ className, title, children, ...props }, ref) => {
-    return (
-      <li>
-        <NavigationMenuLink asChild>
-          <motion.a
-            ref={ref}
-            className={cn(
-              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-50 hover:text-primary-900 focus:bg-primary-50 focus:text-primary-900",
-              className,
-            )}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.2 }}
-            {...props}
-          >
-            <div className="text-sm font-medium leading-none">{title}</div>
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
-          </motion.a>
-        </NavigationMenuLink>
-      </li>
-    )
-  },
-)
-ListItem.displayName = "ListItem"
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a"> & { title: string }
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <motion.a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-50 hover:text-primary-900 focus:bg-primary-50 focus:text-primary-900",
+            className
+          )}
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </motion.a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";
 
 function MobileNav() {
   return (
     <div className="flex flex-col space-y-4 py-4">
       <Link href="/" className="font-serif text-xl font-bold gradient-text">
-        Global Impact Foundation
+        Mingmar Lodge Lumsa
       </Link>
       <div className="flex flex-col space-y-3">
         <MobileNavGroup title="What We Do">
-          <Link href="/programs/education" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/programs/education"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Education
           </Link>
-          <Link href="/programs/climate" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/programs/climate"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Climate Action
           </Link>
-          <Link href="/programs/equality" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/programs/equality"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Social Equality
           </Link>
-          <Link href="/programs/health" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/programs/health"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Health Access
           </Link>
         </MobileNavGroup>
 
         <MobileNavGroup title="Where We Work">
-          <Link href="/regions/africa" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/regions/africa"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Africa
           </Link>
-          <Link href="/regions/asia" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/regions/asia"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Asia
           </Link>
-          <Link href="/regions/americas" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/regions/americas"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Americas
           </Link>
-          <Link href="/regions/europe" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/regions/europe"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Europe
           </Link>
         </MobileNavGroup>
 
         <MobileNavGroup title="Our Learnings">
-          <Link href="/research" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/research"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Research
           </Link>
           <Link href="/reports" className="py-2 text-sm hover:text-primary-900">
             Reports
           </Link>
-          <Link href="/case-studies" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/case-studies"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Case Studies
           </Link>
         </MobileNavGroup>
@@ -267,16 +313,28 @@ function MobileNav() {
         </MobileNavGroup>
 
         <MobileNavGroup title="About Us">
-          <Link href="/about/mission" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/about/mission"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Our Mission
           </Link>
-          <Link href="/about/team" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/about/team"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Our Team
           </Link>
-          <Link href="/about/partners" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/about/partners"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Partners
           </Link>
-          <Link href="/about/careers" className="py-2 text-sm hover:text-primary-900">
+          <Link
+            href="/about/careers"
+            className="py-2 text-sm hover:text-primary-900"
+          >
             Careers
           </Link>
         </MobileNavGroup>
@@ -293,17 +351,17 @@ function MobileNav() {
         </motion.div>
       </div>
     </div>
-  )
+  );
 }
 
 function MobileNavGroup({
   title,
   children,
 }: {
-  title: string
-  children: React.ReactNode
+  title: string;
+  children: React.ReactNode;
 }) {
-  const [isOpen, setIsOpen] = React.useState(false)
+  const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <div className="border-b border-primary-100 pb-3">
@@ -316,5 +374,5 @@ function MobileNavGroup({
       </button>
       {isOpen && <div className="mt-2 flex flex-col pl-4">{children}</div>}
     </div>
-  )
+  );
 }
