@@ -11,7 +11,7 @@ export function SiteFooter() {
               href="/"
               className="font-serif text-xl font-bold gradient-text"
             >
-              Mingmar Lodge Lumsa
+              Lumsa Sherpa Foundation Nepal
             </Link>
             <p className="mt-3 text-muted-foreground">
               Working with visionaries on the frontlines of social change

@@ -43,7 +43,7 @@ export function SiteHeader() {
         >
           <Link href="/" className="flex items-center space-x-2">
             <span className="font-serif text-xl md:text-2xl font-bold gradient-text">
-              Mingmar Lodge Lumsa
+              Lumsa Sherpa Foundation Nepal
             </span>
           </Link>
         </motion.div>
@@ -225,7 +225,7 @@ function MobileNav() {
   return (
     <div className="flex flex-col space-y-4 py-4">
       <Link href="/" className="font-serif text-xl font-bold gradient-text">
-        Mingmar Lodge Lumsa
+        Lumsa Sherpa Foundation Nepal
       </Link>
       <div className="flex flex-col space-y-3">
         <MobileNavGroup title="What We Do">

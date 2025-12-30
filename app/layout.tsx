@@ -13,7 +13,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Mingmar Lodge Lumsa",
+  title: "Lumsa Sherpa Foundation Nepal",
   description:
     "Working with visionaries on the frontlines of social change worldwide",
   generator: "v0.dev",

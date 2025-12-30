@@ -89,7 +89,7 @@ export function AnimatedHeroSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Mingmar Lodge Lumsa
+                Lumsa Sherpa Foundation Nepal
               </motion.div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold tracking-tight leading-tight">
